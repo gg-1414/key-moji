@@ -23,3 +23,8 @@
   filter: contrast(180%) hue-rotate(300deg) brightness(150%);
   background: #e959bb;
 }
+
+.hexagon p {
+  font-size: 40px;
+  text-align: center;
+}

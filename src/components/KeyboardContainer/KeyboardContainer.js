@@ -45,7 +45,7 @@ class KeyboardContainer extends Component {
   render() {
     // console.log(this.state.emojis)
     return (
-      <div >
+      <div id="emoji-container">
         {this.generateKeyboards()}
       </div>
     )
