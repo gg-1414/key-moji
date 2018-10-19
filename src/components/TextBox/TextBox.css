@@ -1,0 +1,14 @@
+#text-box textarea {
+  background-color: black;
+  color: #b3bac8;
+  border-radius: 45px;
+  padding: 20px;
+  margin: 17px;
+  width: 1380px;
+  height: 100px;
+  font-size: 20px;
+}
+
+#text-box textarea:focus {
+  outline: none;
+}

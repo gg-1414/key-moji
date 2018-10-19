@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Keyboard from '../Keyboard/Keyboard'
+import './KeyboardContainer.css'
 
 const faces = ['face', 'smiley', 'monster', 'hands', 'body', 'people', 'hand', 'person']
 const clothing = ['fashion', 'accessories']

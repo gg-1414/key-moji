@@ -8,6 +8,7 @@ class Hexagon extends Component {
       <li>
         <div className="hexagon">
           <p>{(this.props.emoji && this.props.emoji.symbol) && this.props.emoji.symbol}</p>
+          <p></p>
         </div>
       </li>
     )
