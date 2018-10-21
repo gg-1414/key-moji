@@ -18,7 +18,8 @@ class App extends Component {
     super()
     this.state = {
       emojis: [],
-      category: faces
+      category: faces,
+      searchTerm: ''
     }
   }
 
@@ -29,17 +30,36 @@ class App extends Component {
   fetchEmojis = () => {
     fetch('http://localhost:3000/emojis')
       .then(res => res.json())
-      .then(this.groupEmojis)
+      .then(this.groupEmojisByCategory)
   }
 
-  groupEmojis = (emojis) => {
+  groupEmojisByCategory = (emojis) => {
     const categorizedEmojis = emojis.filter(emoji => {
       return this.state.category.some(word => (emoji.keywords.includes(word)))
     })
     this.setState({ emojis: categorizedEmojis })
   }
 
-  handleClick = (event) => {
+  groupEmojisBySearchTerm = (emojis) => {
+    if (this.state.searchTerm !== '') {
+      const categorizedEmojis = emojis.filter(emoji => emoji.keywords.includes(this.state.searchTerm) || emoji.title.toLowerCase().includes(this.state.searchTerm))
+      this.setState({ emojis: categorizedEmojis })
+    } else {
+      this.fetchEmojis()
+    }
+  }
+
+  handleSearchChange = (event) => {
+    this.setState({searchTerm: event.target.value.toLowerCase()}, this.searchEmojis)
+  }
+
+  searchEmojis = () => {
+    fetch('http://localhost:3000/emojis')
+      .then(res => res.json())
+      .then(this.groupEmojisBySearchTerm)
+  }
+
+  handleCategoryClick = (event) => {
     console.log(event.target.dataset.name)
     switch (event.target.dataset.name) {
       case "faces":
@@ -70,7 +90,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar handleClick={this.handleClick}/>
+        <Navbar handleSearchChange={this.handleSearchChange} handleCategoryClick={this.handleCategoryClick}/>
         <KeyboardContainer emojis={this.state.emojis}/>
         <TextBox />
       </div>
