@@ -35,10 +35,10 @@ class KeyboardContainer extends Component {
 
   generateKeyboards = () => {
     const length = this.state.emojis.length
-    const numOfKeyboards = Math.ceil(length / 48)
+    const numOfKeyboards = Math.ceil(length / 47)
     let keyboards = []
     for (let i = 0; i < numOfKeyboards; i++){
-      keyboards.push(<Keyboard emojis={this.state.emojis.slice(i * 48, (i + 1)* 48)}/>)
+      keyboards.push(<Keyboard emojis={this.state.emojis.slice(i * 47, (i + 1)* 47)} key={i}/>)
     }
     return keyboards
   }
