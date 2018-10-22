@@ -7,7 +7,7 @@ class FirstHexGrid extends Component {
     // console.log(this.props.keys)
     let hexagons = []
     for (let i = 0; i < 12; i++){
-      hexagons.push(<Hexagon emoji={this.props.emojis[i]} keyVal={this.props.keys[i]} key={i} />)
+      hexagons.push(<Hexagon emoji={this.props.emojis[i]} keyVal={this.props.keys[i]} key={i} handleKeyboardClick={this.props.handleKeyboardClick} />)
     }
 
     return (

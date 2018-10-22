@@ -9,7 +9,7 @@ class KeyboardContainer extends Component {
     const numOfKeyboards = Math.ceil(length / 47)
     let keyboards = []
     for (let i = 0; i < numOfKeyboards; i++){
-      keyboards.push(<Keyboard emojis={this.props.emojis.slice(i * 47, (i + 1)* 47)} key={i}/>)
+      keyboards.push(<Keyboard emojis={this.props.emojis.slice(i * 47, (i + 1)* 47)} key={i} handleKeyboardClick={this.props.handleKeyboardClick}/>)
     }
     return keyboards
   }

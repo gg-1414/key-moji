@@ -19,7 +19,8 @@ class App extends Component {
     this.state = {
       emojis: [],
       category: faces,
-      searchTerm: ''
+      searchTerm: '',
+      textBox: ''
     }
   }
 
@@ -40,15 +41,6 @@ class App extends Component {
     this.setState({ emojis: categorizedEmojis })
   }
 
-  groupEmojisBySearchTerm = (emojis) => {
-    if (this.state.searchTerm !== '') {
-      const categorizedEmojis = emojis.filter(emoji => emoji.keywords.includes(this.state.searchTerm) || emoji.title.toLowerCase().includes(this.state.searchTerm))
-      this.setState({ emojis: categorizedEmojis })
-    } else {
-      this.fetchEmojis()
-    }
-  }
-
   handleSearchChange = (event) => {
     this.setState({searchTerm: event.target.value.toLowerCase()}, this.searchEmojis)
   }
@@ -57,6 +49,15 @@ class App extends Component {
     fetch('http://localhost:3000/emojis')
       .then(res => res.json())
       .then(this.groupEmojisBySearchTerm)
+  }
+
+  groupEmojisBySearchTerm = (emojis) => {
+    if (this.state.searchTerm !== '') {
+      const categorizedEmojis = emojis.filter(emoji => emoji.keywords.includes(this.state.searchTerm) || emoji.title.toLowerCase().includes(this.state.searchTerm))
+      this.setState({ emojis: categorizedEmojis })
+    } else {
+      this.fetchEmojis()
+    }
   }
 
   handleCategoryClick = (event) => {
@@ -87,12 +88,20 @@ class App extends Component {
     this.fetchEmojis()
   }
 
+  handleKeyboardClick = (selectedSymbol) => {
+    this.setState((prevState) => ({textBox: prevState.textBox + selectedSymbol}))
+  }
+
+  handleTextBoxChange = (input) => {
+    this.setState({textBox: input})
+  }
+
   render() {
     return (
       <div>
         <Navbar handleSearchChange={this.handleSearchChange} handleCategoryClick={this.handleCategoryClick}/>
-        <KeyboardContainer emojis={this.state.emojis}/>
-        <TextBox />
+        <KeyboardContainer emojis={this.state.emojis} handleKeyboardClick={this.handleKeyboardClick}/>
+        <TextBox textBox={this.state.textBox} handleTextBoxChange={this.handleTextBoxChange}/>
       </div>
     );
   }
