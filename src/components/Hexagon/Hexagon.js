@@ -4,6 +4,7 @@ import './Hexagon.css'
 class Hexagon extends Component {
   render() {
     // console.log(this.props.emoji)
+
     return (
       <li>
         <div className="hexagon" data-key={this.props.keyVal} onClick={() => {return (this.props.emoji && this.props.emoji.symbol) ? this.props.handleKeyboardClick(this.props.emoji.symbol) : null}}>

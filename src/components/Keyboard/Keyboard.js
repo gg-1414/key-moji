@@ -15,10 +15,10 @@ class Keyboard extends Component {
     // console.log(this.props.emojis)
     return (
       <div className="keyboard">
-        <FirstHexGrid emojis={this.props.emojis.slice(0,12)} keys={keyValues.slice(0,12)} handleKeyboardClick={this.props.handleKeyboardClick}/>
-        <NextHexGrid emojis={this.props.emojis.slice(12,24)} keys={keyValues.slice(12,24)} handleKeyboardClick={this.props.handleKeyboardClick} />
-        <NextHexGrid emojis={this.props.emojis.slice(24,36)} keys={keyValues.slice(24,36)} handleKeyboardClick={this.props.handleKeyboardClick} />
-        <NextHexGrid emojis={this.props.emojis.slice(36,48)} keys={keyValues.slice(36,48)} handleKeyboardClick={this.props.handleKeyboardClick} />
+        <FirstHexGrid emojis={this.props.emojis.slice(0,12)} keys={keyValues.slice(0,12)}/>
+        <NextHexGrid emojis={this.props.emojis.slice(12,24)} keys={keyValues.slice(12,24)} />
+        <NextHexGrid emojis={this.props.emojis.slice(24,36)} keys={keyValues.slice(24,36)} />
+        <NextHexGrid emojis={this.props.emojis.slice(36,48)} keys={keyValues.slice(36,48)} />
       </div>
     )
   }

@@ -11,13 +11,14 @@ class KeyboardContainer extends Component {
     for (let i = 0; i < numOfKeyboards; i++){
       keyboards.push(<Keyboard emojis={this.props.emojis.slice(i * 47, (i + 1)* 47)} key={i} handleKeyboardClick={this.props.handleKeyboardClick}/>)
     }
+    console.log(keyboards[0])
     return keyboards
   }
 
   render() {
     // console.log(this.state.emojis)
     return (
-      <div id="emoji-container">
+      <div id="emoji-container" onClick={this.props.activateKeyboard}>
         {this.generateKeyboards()}
       </div>
     )
