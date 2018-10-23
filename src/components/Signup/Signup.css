@@ -1,0 +1,33 @@
+#signup {
+  color: black;
+}
+
+#signup form {
+  margin: 205px auto;
+  background: #eeeff587;
+  padding: 28px;
+  width: 250px;
+  font-size: 20px;
+}
+
+#signup label {
+  display: block;
+  margin: 5px;
+}
+
+#signup input[type=text],
+#signup input[type=password] {
+  margin-left: 14px;
+  margin-top: 5px;
+  position: relative;
+  right: 10px;
+  padding: 4px;
+  width: 90%;
+  font-size: 18px;
+  border-radius: 3px;
+}
+
+#signup input[type=submit] {
+  margin: 17px 37.5% -1px;
+  font-size: 20px;
+}
