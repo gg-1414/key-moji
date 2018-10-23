@@ -4,13 +4,28 @@
   border-radius: 45px;
   padding: 20px;
   margin: 17px;
-  width: 93%;
+  width: 88%;
   height: 96px;
   font-size: 23px;
+  float: left;
 }
 
 #text-box textarea:focus {
   outline: none;
+}
+
+#text-box img {
+  height: 45px;
+  display: inline-block;
+  float: left;
+  margin-right: 1%;
+  margin-top: 25px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+#text-box img:hover {
+  filter: invert(93%);
 }
 
 @media only screen and (max-width: 905px) {
