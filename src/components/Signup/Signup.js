@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './Signup.css'
 
 export default class Signup extends Component {
 
@@ -35,7 +36,7 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div>
+      <div id="signup">
         <form onSubmit={this.handleOnSubmit} >
           <label>Name: </label>
           <input type="text" onChange={this.handleChange} name="name"></input><br />
