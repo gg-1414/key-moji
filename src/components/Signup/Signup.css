@@ -3,11 +3,11 @@
 }
 
 #signup form {
-  margin: 180px auto;
+  margin: 205px auto;
   background: #eeeff587;
   padding: 28px;
   width: 250px;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 #signup label {
@@ -18,10 +18,13 @@
 #signup input[type=text],
 #signup input[type=password] {
   margin-left: 14px;
+  margin-top: 5px;
   position: relative;
   right: 10px;
-  padding: 5px;
+  padding: 4px;
   width: 90%;
+  font-size: 18px;
+  border-radius: 3px;
 }
 
 #signup input[type=submit] {
