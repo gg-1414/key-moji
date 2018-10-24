@@ -2,21 +2,6 @@ import React, {Component} from 'react';
 import './Navbar.css'
 
 class Navbar extends Component {
-  // state = {
-  //   dropDown: false
-  // }
-
-  // toggleDropDown = (event) => {
-    // console.log(event.target)
-    // const dropDown = this.refs.dropDown
-    // if (this.state.dropDown === false){
-    //   this.setState({ dropDown: true })
-    //   dropDown.style.display = "inline-block"
-    // } else {
-    //   this.setState({ dropDown: false })
-    //   dropDown.style.display = "none"
-    // }
-  // }
 
   addEmojiFocus = (event) => {
     const dropDown = this.refs.dropDown

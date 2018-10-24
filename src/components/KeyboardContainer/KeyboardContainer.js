@@ -18,7 +18,7 @@ class KeyboardContainer extends Component {
   render() {
     // console.log(this.state.emojis)
     return (
-      <div id="emoji-container" onClick={this.props.activateKeyboard}>
+      <div id="emoji-container" onClick={(event) => this.props.activateKeyboard(event)}>
         {this.generateKeyboards()}
       </div>
     )

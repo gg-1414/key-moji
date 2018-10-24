@@ -35,7 +35,8 @@ class App extends Component {
       category: faces,
       searchTerm: '',
       textBox: '',
-      keyboard: englishKeyboard
+      keyboard: englishKeyboard,
+      emojiKeyboardActivated: false
     }
   }
 
@@ -112,36 +113,47 @@ class App extends Component {
   }
 
   activateKeyboard = (event) => {
-    // console.log(event.target.parentElement)
+    event.persist()
+    this.setState((prevState) => ({emojiKeyboardActivated: !prevState.emojiKeyboardActivated}), () => this.activateKeyboard2(event))
+  }
+
+  activateKeyboard2 = (event) => {
     const currentKeyboard = event.target.parentElement
     const currentHexs = currentKeyboard.querySelectorAll(".hexagon")
-    let newKeyboard = {}
-    currentHexs.forEach((hex, idx) => {
-      hex.style.border = "1px solid red"
-      // console.log(hex)
-      // let emoji = hex.textContent.split(" ")
-      let emoji = hex.children[0].innerText
-      // console.log(emoji)
-      newKeyboard[keyCodes[idx]] = `${emoji}`
-    })
-    // console.log(newKeyboard)
-
-    this.setState({
-      keyboard: newKeyboard
-    })
+    if (this.state.emojiKeyboardActivated) {
+      let newKeyboard = {}
+      currentHexs.forEach((hex, idx) => {
+        hex.style.border = "1px solid red"
+        let emoji = hex.children[0].innerText
+        newKeyboard[keyCodes[idx]] = `${emoji}`
+      })
+      this.setState({
+        keyboard: newKeyboard
+      })
+    } else {
+      currentHexs.forEach((hex, idx) => {
+        hex.style.border = "none"
+      })
+      this.setState({
+        keyboard: englishKeyboard
+      })
+    }
   }
 
   handleKeyDown = (event) => {
-    // console.log(event.keyCode)
       const emoji = this.state.keyboard[`${event.keyCode}`]
       const text = this.state.textBox
-      if (event.keyCode === 8) {
-        this.setState({
-          textBox: text.slice(0, -2)
-        })
-      } else {
+      if (emoji && emoji !== "enter" && emoji !== "shift") {
         this.setState({
           textBox: text + emoji
+        })
+      } else if (event.keyCode === 8) {
+        this.setState({
+          textBox: text.slice(0, -1)
+        })
+      } else if (event.keyCode === 32){
+        this.setState({
+          textBox: text.concat(" ")
         })
       }
   }
