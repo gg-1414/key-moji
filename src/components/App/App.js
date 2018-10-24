@@ -41,7 +41,6 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchEmojis()
-    window.addEventListener('keypress', this.keyPressHandler)
   }
 
   fetchEmojis = () => {
@@ -105,7 +104,6 @@ class App extends Component {
   }
 
   handleKeyboardClick = (selectedSymbol) => {
-    debugger
     this.setState((prevState) => ({textBox: prevState.textBox + selectedSymbol}))
   }
 
@@ -149,9 +147,8 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.keyboard["49"])
     return (
-      <div ref="">
+      <div>
         <Navbar handleSearchChange={this.handleSearchChange} handleCategoryClick={this.handleCategoryClick}/>
         <KeyboardContainer emojis={this.state.emojis} handleKeyboardClick={this.handleKeyboardClick} activateKeyboard={this.activateKeyboard}/>
         <TextBox textBox={this.state.textBox} handleTextBoxChange={this.handleTextBoxChange} handleKeyDown={this.handleKeyDown} />
