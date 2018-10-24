@@ -151,10 +151,10 @@ class App extends Component {
   render() {
     console.log(this.state.keyboard["49"])
     return (
-      <div ref="" onKeyDown={this.handleKeyDown}>
+      <div ref="">
         <Navbar handleSearchChange={this.handleSearchChange} handleCategoryClick={this.handleCategoryClick}/>
         <KeyboardContainer emojis={this.state.emojis} handleKeyboardClick={this.handleKeyboardClick} activateKeyboard={this.activateKeyboard}/>
-        <TextBox textBox={this.state.textBox} handleTextBoxChange={this.handleTextBoxChange}/>
+        <TextBox textBox={this.state.textBox} handleTextBoxChange={this.handleTextBoxChange} handleKeyDown={this.handleKeyDown} />
       </div>
     );
   }
