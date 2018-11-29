@@ -147,11 +147,13 @@ class App extends Component {
         this.setState({
           textBox: text + emoji
         })
-      } else if (event.keyCode === 8) {
-        this.setState({
-          textBox: text.slice(0, -1)
-        })
-      } else if (event.keyCode === 32){
+      } else if (event.keyCode === 8) { // delete
+        if (!this.state.textBox.substr(-1).match(/[a-z]/i) && isNaN(this.state.textBox.substr(-1))){
+          this.setState({ textBox: text.slice(0, -2) })
+        } else {
+          this.setState({ textBox: text.slice(0, -1) })
+        }
+      } else if (event.keyCode === 32){ // space
         this.setState({
           textBox: text.concat(" ")
         })

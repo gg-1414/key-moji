@@ -6,7 +6,7 @@ import Signup from './Signup/Signup'
 const Router = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path = '/' component={Signup}/>
+      // <Route exact path = '/' component={Signup}/>
       <Route path = '/emojis' component={App}/>
     </Switch>
   </BrowserRouter>
