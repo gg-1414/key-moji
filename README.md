@@ -4,17 +4,17 @@ Live demo: http://key-moji.herokuapp.com
 
 ## Idea: 
 
-I noticed there weren't any emoji keyboards. So I made one.
+We noticed there weren't any emoji keyboards. So we made one.
 
 ## Solution: 
 
 I got inspiration from (TMI) using the bathroom, and seeing tiny hexagon tiles on the floor. It gave me inspiration to create a hexagon honey-comb design for the keyboard, built with vanilla CSS.
 
-I got a json file of the emojis from a react app example found here (src/emojiList.json): https://github.com/ahfarmer/emoji-search
+We got a json file of the emojis from a react app example found here (src/emojiList.json): https://github.com/ahfarmer/emoji-search
 
 ## What I learned: 
 
-From this project, I really understood the concept and use of re-usable components (and super beneficial especially in this instance since there are components that are repeated a bunch of times, like the keyboard and hexagon components).
+From this project, we really understood the concept and use of re-usable components (and super beneficial especially in this instance since there are components that are repeated a bunch of times, like the keyboard and hexagon components).
 
 I discovered this super fun CSS property that is shown when a user hovers over each of the hexagons, or the keys of the keyboard. 
 `filter: contrast(180%) hue-rotate(300deg) brightness(150%);`
