@@ -141,7 +141,9 @@ class App extends Component {
   activateKeyboard2 = (event) => {
     event.persist()
     this.setState((prevState) => ({emojiKeyboardActivated: !prevState.emojiKeyboardActivated}), () => {
-      const currentKeyboard = event.target.parentElement.parentElement.parentElement
+      const currentKeyboard = event.target.nodeName === "P" ?
+      event.target.parentElement.parentElement.parentElement.parentElement :
+      event.target.parentElement.parentElement.parentElement
       const currentHexs = currentKeyboard.querySelectorAll(".hexagon")
       if (this.state.emojiKeyboardActivated) {
         let newKeyboard = {}

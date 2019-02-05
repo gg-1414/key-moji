@@ -13,10 +13,8 @@ const keyValues = [
 class Keyboard extends Component {
 
   render() {
-    // console.log(this.props.emojis)
     return (
       <div className="keyboard">
-        <button onClick={(event) => this.props.activateKeyboard(event)}></button>
         <FirstHexGrid emojis={this.props.emojis.slice(0,12)} keys={keyValues.slice(0,12)} handleKeyboardClick={this.props.handleKeyboardClick}/>
         <NextHexGrid emojis={this.props.emojis.slice(12,24)} keys={keyValues.slice(12,24)} handleKeyboardClick={this.props.handleKeyboardClick} />
         <NextHexGrid emojis={this.props.emojis.slice(24,36)} keys={keyValues.slice(24,36)} handleKeyboardClick={this.props.handleKeyboardClick} />
@@ -26,6 +24,7 @@ class Keyboard extends Component {
       </div>
     )
   }
+  
 }
 
 export default Keyboard
