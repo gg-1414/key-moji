@@ -37,3 +37,25 @@
   text-align: center;
   font-weight: 400;
 }
+
+.statusHex{
+  /* margin-top: 50px !important; */
+  /* background: #090f7b;
+  background: #505f77 !important; */
+  outline: 1px solid #00eeff;
+  transition-duration: 1s;
+  cursor: default;
+}
+
+.statusHex:hover {
+  background: #131010;
+  filter: none;
+}
+
+.statusHex p {
+  font-size: 28px !important;
+  /* color: #00eeff; */
+  color: white;
+  margin-top: 45px !important;
+  font-weight: 600;
+}
