@@ -9,9 +9,9 @@ class NextHexGrid extends Component {
 
     let hexagons = []
     for (let i = 0; i < 12; i++){
-      hexagons.push(this.props.activateKeyboard2 && i === 11 ?
+      hexagons.push(this.props.activateKeyboard && i === 11 ?
         <Hexagon activateBtn={this.props.emojiActivatedState ? ':)' : 'A/a'} keyVal={this.props.keys[i]} key={i} handleKeyboardClick={this.props.handleKeyboardClick}
-        activateKeyboard2={this.props.activateKeyboard2} /> :
+        activateKeyboard={this.props.activateKeyboard} /> :
         <Hexagon emoji={this.props.emojis[i]} keyVal={this.props.keys[i]} key={i}  handleKeyboardClick={this.props.handleKeyboardClick} />)
     }
     // console.log('NextHexGrid', hexagons);

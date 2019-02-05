@@ -19,12 +19,12 @@ class Keyboard extends Component {
         <NextHexGrid emojis={this.props.emojis.slice(12,24)} keys={keyValues.slice(12,24)} handleKeyboardClick={this.props.handleKeyboardClick} />
         <NextHexGrid emojis={this.props.emojis.slice(24,36)} keys={keyValues.slice(24,36)} handleKeyboardClick={this.props.handleKeyboardClick} />
         <NextHexGrid emojis={this.props.emojis.slice(36,47)} keys={keyValues.slice(36,48)} handleKeyboardClick={this.props.handleKeyboardClick}
-        activateKeyboard2={this.props.activateKeyboard2}
+        activateKeyboard={this.props.activateKeyboard}
         emojiActivatedState={this.props.emojiActivatedState} />
       </div>
     )
   }
-  
+
 }
 
 export default Keyboard

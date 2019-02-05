@@ -115,32 +115,6 @@ class App extends Component {
   activateKeyboard = (event) => {
     event.persist()
     this.setState((prevState) => ({emojiKeyboardActivated: !prevState.emojiKeyboardActivated}), () => {
-      const currentKeyboard = event.target.parentElement
-      const currentHexs = currentKeyboard.querySelectorAll(".hexagon")
-      if (this.state.emojiKeyboardActivated) {
-        let newKeyboard = {}
-        currentHexs.forEach((hex, idx) => {
-          hex.style.border = "1px solid red"
-          let emoji = hex.children[0].innerText
-          newKeyboard[keyCodes[idx]] = `${emoji}`
-        })
-        this.setState({
-          keyboard: newKeyboard
-        })
-      } else {
-        currentHexs.forEach((hex, idx) => {
-          hex.style.border = "none"
-        })
-        this.setState({
-          keyboard: englishKeyboard
-        })
-      }
-    })
-  }
-
-  activateKeyboard2 = (event) => {
-    event.persist()
-    this.setState((prevState) => ({emojiKeyboardActivated: !prevState.emojiKeyboardActivated}), () => {
       const currentKeyboard = event.target.nodeName === "P" ?
       event.target.parentElement.parentElement.parentElement.parentElement :
       event.target.parentElement.parentElement.parentElement
@@ -185,8 +159,8 @@ class App extends Component {
     return (
       <div>
         <Navbar handleSearchChange={this.handleSearchChange} handleCategoryClick={this.handleCategoryClick}/>
-        <KeyboardContainer emojis={this.state.emojis} handleKeyboardClick={this.handleKeyboardClick} activateKeyboard={this.activateKeyboard}
-        activateKeyboard2={this.activateKeyboard2}
+        <KeyboardContainer emojis={this.state.emojis} handleKeyboardClick={this.handleKeyboardClick}
+        activateKeyboard={this.activateKeyboard}
         emojiActivatedState={this.state.emojiKeyboardActivated}/>
         <TextBox textBox={this.state.textBox} handleTextBoxChange={this.handleTextBoxChange} handleKeyDown={this.handleKeyDown} />
       </div>
