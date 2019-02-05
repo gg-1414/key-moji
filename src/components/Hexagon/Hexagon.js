@@ -8,7 +8,7 @@ class Hexagon extends Component {
     return (
       <li>
         <div
-          className={this.props.activateBtn ? "hexagon statusHex" : "hexagon"}
+          className={this.props.activateBtn ? "hexagon activateBtn" : "hexagon"}
           data-key={this.props.keyVal}
           onClick={(event) => {
             return this.props.activateKeyboard !== undefined ?

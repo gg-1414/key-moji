@@ -38,7 +38,7 @@
   font-weight: 400;
 }
 
-.statusHex{
+.activateBtn{
   /* margin-top: 50px !important; */
   /* background: #090f7b;
   background: #505f77 !important; */
@@ -47,12 +47,12 @@
   cursor: default;
 }
 
-.statusHex:hover {
+.activateBtn:hover {
   background: #131010;
   filter: none;
 }
 
-.statusHex p {
+.activateBtn p {
   font-size: 28px !important;
   /* color: #00eeff; */
   color: white;
