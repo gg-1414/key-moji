@@ -40,8 +40,8 @@
 
 .activateBtn {
   /* margin-top: 50px !important; */
-  background: #090f7b;
-  background: #505f77 !important;
+  /* background: #090f7b;
+  background: #505f77 !important; */
   outline: 1px solid #00eeff;
   transition-duration: 1s;
 }

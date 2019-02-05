@@ -50,12 +50,12 @@ class App extends Component {
       .then(this.groupEmojisByCategory)
   }
 
-  groupEmojisByCategory = (emojis) => {
+  groupEmojisByCategory = (emojis) => { // only filters emojis where emoji has a keyword included from category array
     const categorizedEmojis = emojis.filter(emoji => {
-      return this.state.category.some(word => (emoji.keywords.includes(word)))
+      return this.state.category.some(word => (emoji.keywords.includes(word))) // returns true/false
     })
     this.setState({ emojis: categorizedEmojis })
-  }
+  } // purpose of function: set "emojis" state to new array of emojis that includes keywords from category array
 
   handleSearchChange = (event) => {
     this.setState({searchTerm: event.target.value.toLowerCase()}, this.searchEmojis)

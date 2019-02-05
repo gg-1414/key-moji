@@ -15,6 +15,7 @@ class KeyboardContainer extends Component {
       keyboards.push(<Keyboard emojis={this.props.emojis.slice(i * 47, (i + 1)* 47)} key={i} handleKeyboardClick={this.props.handleKeyboardClick}
       activateKeyboard2={this.props.activateKeyboard2}
       emojiActivatedState={this.props.emojiActivatedState}
+      activateKeyboard={this.props.activateKeyboard}
       />)
     }
     // console.log(keyboards[0])
@@ -24,7 +25,7 @@ class KeyboardContainer extends Component {
   render() {
     // console.log(this.state.emojis)
     return (
-      <div id="emoji-container" onClick={(event) => this.props.activateKeyboard(event)}>
+      <div id="emoji-container">
         {this.generateKeyboards()}
       </div>
     )
