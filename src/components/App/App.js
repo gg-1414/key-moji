@@ -152,16 +152,11 @@ class App extends Component {
           let emoji = hex.children[0].innerText
           newKeyboard[keyCodes[idx]] = `${emoji}`
         })
-        this.setState({
-          keyboard: newKeyboard
-        })
+        this.setState({ keyboard: newKeyboard })
       } else {
-        currentHexs.forEach((hex, idx) => {
-          hex.style.border = "none"
-        })
-        this.setState({
-          keyboard: englishKeyboard
-        })
+        const allHexs = document.querySelectorAll(".hexagon")
+        allHexs.forEach((hex) => { hex.style.border = "none" })
+        this.setState({ keyboard: englishKeyboard })
       }
     })
   }
