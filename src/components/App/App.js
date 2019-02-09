@@ -100,6 +100,9 @@ class App extends Component {
       case "symbol":
         this.setState({category: symbol})
         break
+      default
+        this.setState({category: faces})
+        break
     }
     this.fetchEmojis()
   }
