@@ -100,7 +100,7 @@ class App extends Component {
       case "symbol":
         this.setState({category: symbol})
         break
-      default
+      default:
         this.setState({category: faces})
         break
     }
