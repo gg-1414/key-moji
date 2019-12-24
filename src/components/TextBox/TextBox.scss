@@ -1,15 +1,17 @@
 #text-box {
   display: flex; 
+  padding: 16px;
 
   textarea {
     background-color: black;
     color: #b3bac8;
     border-radius: 45px;
     padding: 20px;
-    margin: 17px;
     width: 88%;
     height: 96px;
     font-size: 23px;
+    margin: 0;
+    margin-right: 16px;
 
     &:focus {
       outline: none;
@@ -19,7 +21,6 @@
   .options {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     height: 138px;
   }
 
@@ -29,6 +30,7 @@
     margin-top: 25px;
     cursor: pointer;
     transition-duration: 0.2s;
+    margin-top: 25px;
 
     &:hover {
       filter: invert(93%);
