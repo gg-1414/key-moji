@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../FirstHexGrid/Grid.css'
+import '../FirstHexGrid/Grid.scss'
 import './NextGrid.css'
 import Hexagon from '../Hexagon/Hexagon'
 
