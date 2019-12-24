@@ -51,7 +51,7 @@ class App extends Component {
     let isMobile
     const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
 
-    width <= 700 ? isMobile = true : isMobile = false
+    width <= 1280 ? isMobile = true : isMobile = false
     this.setState({ isMobile })
   }
 
