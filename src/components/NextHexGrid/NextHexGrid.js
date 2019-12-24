@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../FirstHexGrid/Grid.scss'
-import './NextGrid.css'
+import './NextGrid.scss'
 import Hexagon from '../Hexagon/Hexagon'
 
 class NextHexGrid extends Component {
