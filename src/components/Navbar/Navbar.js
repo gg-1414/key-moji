@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Navbar.css'
+import './Navbar.scss'
 
 class Navbar extends Component {
 
@@ -21,7 +21,7 @@ class Navbar extends Component {
             <img src="./images/civilization.png" alt="civilization" data-name="civilization" onClick={(event) => this.props.handleCategoryClick(event)} />
             <img src="./images/symbol.png" alt="symbol" data-name="symbol" onClick={(event) => this.props.handleCategoryClick(event)} />
           </div>
-          <div id="add-emoji-container">
+          {/* <div id="add-emoji-container">
             <img id="add-emoji" src="./images/add-to-emoji.png" alt="Add emoji to my keyboard" title="Add emoji to my keyboard" onMouseEnter={this.addEmojiFocus} onMouseLeave={() => this.refs.dropDown.style.visibility = "hidden"}/>
             <div className="drop-down" ref="dropDown" onMouseEnter={this.addEmojiFocus} onMouseLeave={() => this.refs.dropDown.style.visibility = "hidden"}>
               <ul>
@@ -29,7 +29,7 @@ class Navbar extends Component {
                 <li>My keyboard</li>
               </ul>
             </div>
-          </div>
+          </div> */}
             {/*<span>&#x2B22;</span>*/}
 
       </div>
