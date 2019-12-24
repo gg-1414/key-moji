@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component, Fragment } from 'react';
+import './App.scss';
 import Navbar from '../Navbar/Navbar'
 import KeyboardContainer from '../KeyboardContainer/KeyboardContainer'
 import TextBox from '../TextBox/TextBox'
@@ -31,6 +31,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      isMobile: false,
       emojis: [],
       category: faces,
       searchTerm: '',
@@ -41,13 +42,29 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.isMobileDevice()
+    window.addEventListener("resize", this.onResize)
     this.fetchEmojis()
   }
 
+  onResize = () => {
+    let isMobile
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+
+    width <= 700 ? isMobile = true : isMobile = false
+    this.setState({ isMobile })
+  }
+
+  isMobileDevice() {
+    const isMobile = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
+    console.log('isMobileDevice ? ' , isMobile)
+    this.setState({ isMobile })
+  }
+
   fetchEmojis = () => {
-    fetch('https://key-moji-backend.herokuapp.com/emojis')
-      .then(res => res.json())
-      .then(this.groupEmojisByCategory)
+    fetch('/emojis')
+    .then(res => res.json())
+    .then(this.groupEmojisByCategory)
   }
 
   groupEmojisByCategory = (emojis) => { // only filters emojis where emoji has a keyword included from category array
@@ -62,9 +79,9 @@ class App extends Component {
   }
 
   searchEmojis = () => {
-    fetch('https://key-moji-backend.herokuapp.com/emojis')
-      .then(res => res.json())
-      .then(this.groupEmojisBySearchTerm)
+    fetch('/emojis')
+    .then(res => res.json())
+    .then(this.groupEmojisBySearchTerm)
   }
 
   groupEmojisBySearchTerm = (emojis) => {
@@ -162,34 +179,54 @@ class App extends Component {
   }
 
   handleKeyDown = (event) => {
-      const emoji = this.state.keyboard[`${event.keyCode}`]
-      const text = this.state.textBox
-      if (emoji && emoji !== "enter" && emoji !== "shift") {
-        this.setState({
-          textBox: text + emoji
-        })
-      } else if (event.keyCode === 8) { // delete
-        if (!this.state.textBox.substr(-1).match(/[a-z]/i) && isNaN(this.state.textBox.substr(-1))){
-          this.setState({ textBox: text.slice(0, -2) })
-        } else {
-          this.setState({ textBox: text.slice(0, -1) })
-        }
-      } else if (event.keyCode === 32){ // space
-        this.setState({
-          textBox: text.concat(" ")
-        })
+    const emoji = this.state.keyboard[`${event.keyCode}`]
+    const text = this.state.textBox
+    if (emoji && emoji !== "enter" && emoji !== "shift") {
+      this.setState({
+        textBox: text + emoji
+      })
+    } else if (event.keyCode === 8) { // delete
+      if (!this.state.textBox.substr(-1).match(/[a-z]/i) && isNaN(this.state.textBox.substr(-1))){
+        this.setState({ textBox: text.slice(0, -2) })
+      } else {
+        this.setState({ textBox: text.slice(0, -1) })
       }
+    } else if (event.keyCode === 32){ // space
+      this.setState({
+        textBox: text.concat(" ")
+      })
+    }
+  }
+
+  renderComponents = () => {
+    if (this.state.isMobile) {
+      return (
+        <div className="mobile-view">
+          <h2>Sorry, this application is for desktop use only! <span role="img" aria-label="Flushed emoji">😳</span></h2>
+          <p>Chances are you already have emoji access on your phone <span role="img" aria-label="Thinking emoji">🤔</span></p>
+          <p>If you don't then please <a href="#">email me</a> and I'll be sure to make this mobile accessible <span role="img" aria-label="Nerd emoji">🤓</span></p>
+        </div>
+      )
+    } else {
+      return (
+        <div id="app">
+          <Navbar handleSearchChange={this.handleSearchChange} handleCategoryClick={this.handleCategoryClick}/>
+          <KeyboardContainer emojis={this.state.emojis} handleKeyboardClick={this.handleKeyboardClick} activateKeyboard={this.activateKeyboard}
+          activateKeyboard2={this.activateKeyboard2}
+          emojiActivatedState={this.state.emojiKeyboardActivated}/>
+          <TextBox textBox={this.state.textBox} handleTextBoxChange={this.handleTextBoxChange} handleKeyDown={this.handleKeyDown} />
+        </div>
+      )
+    }
   }
 
   render() {
+    console.log('is mobile', this.state.isMobile)
+    
     return (
-      <div>
-        <Navbar handleSearchChange={this.handleSearchChange} handleCategoryClick={this.handleCategoryClick}/>
-        <KeyboardContainer emojis={this.state.emojis} handleKeyboardClick={this.handleKeyboardClick} activateKeyboard={this.activateKeyboard}
-        activateKeyboard2={this.activateKeyboard2}
-        emojiActivatedState={this.state.emojiKeyboardActivated}/>
-        <TextBox textBox={this.state.textBox} handleTextBoxChange={this.handleTextBoxChange} handleKeyDown={this.handleKeyDown} />
-      </div>
+      <Fragment>
+        {this.renderComponents()}
+      </Fragment>
     );
   }
 }
