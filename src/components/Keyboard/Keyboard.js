@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import FirstHexGrid from '../FirstHexGrid/FirstHexGrid'
 import NextHexGrid from '../NextHexGrid/NextHexGrid'
-import './Keyboard.css'
+import './Keyboard.scss'
 
 const keyValues = [
   '1', '2', '3', 'Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C',
