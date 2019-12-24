@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Keyboard from '../Keyboard/Keyboard'
-import './KeyboardContainer.css'
+import './KeyboardContainer.scss'
 
 class KeyboardContainer extends Component {
   state = {
