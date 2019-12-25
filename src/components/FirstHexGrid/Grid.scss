@@ -25,6 +25,10 @@
       font-size: 1em; 
     } 
 
+    @media (min-width: 1800px) {
+      font-size: 1.2em;
+    }
+
     * { /* all elements within li */
       visibility: visible;
     }
