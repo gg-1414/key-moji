@@ -43,6 +43,7 @@ class App extends Component {
 
   componentDidMount() {
     this.isMobileDevice()
+    this.onResize()
     window.addEventListener("resize", this.onResize)
     this.fetchEmojis()
   }
@@ -55,9 +56,8 @@ class App extends Component {
     this.setState({ isMobile })
   }
 
-  isMobileDevice() {
+  isMobileDevice() { // returns true if device is mobile
     const isMobile = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
-    console.log('isMobileDevice ? ' , isMobile)
     this.setState({ isMobile })
   }
 
@@ -204,7 +204,7 @@ class App extends Component {
         <div className="mobile-view">
           <h2>Sorry, this application is for desktop use only! <span role="img" aria-label="Flushed emoji">😳</span></h2>
           <p>Chances are you already have emoji access on your phone <span role="img" aria-label="Thinking emoji">🤔</span></p>
-          <p>If you don't then please <a href="#">email me</a> and I'll be sure to make this mobile accessible <span role="img" aria-label="Nerd emoji">🤓</span></p>
+          <p>If you don't then please <a href="mailto:ginalee1114@gmail.com?Subject=I%20Want%20Keymoji%20On%20Mobile!" target="_top">email me</a> and I'll be sure to make this mobile accessible <span role="img" aria-label="Nerd emoji">🤓</span></p>
         </div>
       )
     } else {
