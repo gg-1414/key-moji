@@ -18,7 +18,12 @@
     overflow: hidden;
     visibility: hidden;
     border-left: 1px solid transparent;
-    box-shadow: 5px 5px 15px rgba(64,39,87,0.8);
+    box-shadow: 5px 5px 15px rgba(64,39,87,0.8); 
+    font-size: 0.8em; 
+
+    @media (min-width: 1425px) {
+      font-size: 1em; 
+    } 
 
     * { /* all elements within li */
       visibility: visible;
