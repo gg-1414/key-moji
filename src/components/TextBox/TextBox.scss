@@ -1,0 +1,40 @@
+#text-box {
+  display: flex; 
+  padding: 16px;
+
+  textarea {
+    background-color: black;
+    color: #b3bac8;
+    border-radius: 45px;
+    padding: 20px;
+    width: 88%;
+    height: 96px;
+    font-size: 23px;
+    margin: 0;
+    margin-right: 16px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    height: 138px;
+  }
+
+  img {
+    height: 56px;
+    display: block;
+    margin: 19px 0;
+    cursor: pointer;
+    transition-duration: 0.2s;
+
+    &:hover {
+      filter: invert(93%);
+    }
+  }
+}
+
+

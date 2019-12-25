@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Hexagon.css'
+import './Hexagon.scss'
 
 class Hexagon extends Component {
   render() {
