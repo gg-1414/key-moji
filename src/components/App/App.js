@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   fetchEmojis = () => {
-    fetch('/emojis')
+    fetch('https://key-moji-backend.herokuapp.com/emojis')
     .then(res => res.json())
     .then(this.groupEmojisByCategory)
   }
@@ -79,7 +79,7 @@ class App extends Component {
   }
 
   searchEmojis = () => {
-    fetch('/emojis')
+    fetch('https://key-moji-backend.herokuapp.com/emojis')
     .then(res => res.json())
     .then(this.groupEmojisBySearchTerm)
   }
